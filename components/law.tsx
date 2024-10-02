@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Select } from "@/components/ui/select"
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select"
 import { Card, CardContent } from "@/components/ui/card"
 import { Star, MapPin, Phone, Mail, Linkedin, Twitter, Menu, X } from "lucide-react"
 import Image from "next/image"
@@ -17,8 +17,9 @@ export default function EnhancedLawFirmLandingPage() {
   const fadeInUp = {
     initial: { opacity: 0, y: 20 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
   }
+
+  const fadeInUpTransition = { duration: 0.6 }
 
   const staggerChildren = {
     animate: { transition: { staggerChildren: 0.1 } }
@@ -151,7 +152,10 @@ export default function EnhancedLawFirmLandingPage() {
         <section className="py-24 bg-gray-50">
           <div className="container mx-auto px-4">
             <motion.h2
-              {...fadeInUp}
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={fadeInUpTransition}
               className="text-3xl font-bold mb-12 text-center"
             >
               About Our Firm
@@ -190,7 +194,10 @@ export default function EnhancedLawFirmLandingPage() {
         <section className="py-24">
           <div className="container mx-auto px-4">
             <motion.h2
-              {...fadeInUp}
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={fadeInUpTransition}
               className="text-3xl font-bold mb-12 text-center"
             >
               Our Practice Areas
@@ -202,7 +209,7 @@ export default function EnhancedLawFirmLandingPage() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {['Family Law', 'Corporate Law', 'Criminal Defense', 'Real Estate', 'Intellectual Property', 'Personal Injury'].map((area, index) => (
-                <motion.div key={index} variants={fadeInUp}>
+                <motion.div key={index} variants={fadeInUp} transition={fadeInUpTransition}>
                   <Card className="hover:shadow-lg transition-shadow duration-300 overflow-hidden">
                     <CardContent className="p-6 text-center">
                       <motion.div
@@ -234,7 +241,10 @@ export default function EnhancedLawFirmLandingPage() {
         <section className="py-24 bg-gray-50">
           <div className="container mx-auto px-4">
             <motion.h2
-              {...fadeInUp}
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={fadeInUpTransition}
               className="text-3xl font-bold mb-12 text-center"
             >
               Meet Our Attorneys
@@ -246,7 +256,7 @@ export default function EnhancedLawFirmLandingPage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             >
               {[1, 2, 3, 4].map((attorney) => (
-                <motion.div key={attorney} variants={fadeInUp}>
+                <motion.div key={attorney} variants={fadeInUp} transition={fadeInUpTransition}>
                   <Card className="overflow-hidden">
                     <CardContent className="p-6 text-center">
                       <motion.div
@@ -272,7 +282,10 @@ export default function EnhancedLawFirmLandingPage() {
         <section className="py-24">
           <div className="container mx-auto px-4">
             <motion.h2
-              {...fadeInUp}
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={fadeInUpTransition}
               className="text-3xl font-bold mb-12 text-center"
             >
               What Our Clients Say
@@ -284,11 +297,11 @@ export default function EnhancedLawFirmLandingPage() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {[1, 2, 3].map((testimonial) => (
-                <motion.div key={testimonial} variants={fadeInUp}>
+                <motion.div key={testimonial} variants={fadeInUp} transition={fadeInUpTransition}>
                   <Card className="h-full">
                     <CardContent className="p-6 flex flex-col justify-between h-full">
                       <div>
-                        <p className="text-lg mb-4 italic">"The team at Apex Law provided exceptional service. Their expertise and dedication were invaluable in resolving my case."</p>
+                        <p className="text-lg mb-4 italic">&quot;The team at Apex Law provided exceptional service. Their expertise and dedication were invaluable in resolving my case.&quot;</p>
                         <p className="font-semibold">Jane Smith, Corporate Client</p>
                       </div>
                       <div className="flex justify-center mt-4">
@@ -308,7 +321,10 @@ export default function EnhancedLawFirmLandingPage() {
         <section className="py-24 bg-gray-50">
           <div className="container mx-auto px-4">
             <motion.h2
-              {...fadeInUp}
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={fadeInUpTransition}
               className="text-3xl font-bold mb-12 text-center"
             >
               Latest Legal Insights
@@ -320,7 +336,7 @@ export default function EnhancedLawFirmLandingPage() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {[1, 2, 3].map((post) => (
-                <motion.div key={post} variants={fadeInUp}>
+                <motion.div key={post} variants={fadeInUp} transition={fadeInUpTransition}>
                   <Card className="h-full">
                     <CardContent className="p-6 flex flex-col justify-between h-full">
                       <div>
@@ -351,7 +367,10 @@ export default function EnhancedLawFirmLandingPage() {
         <section className="py-24">
           <div className="container mx-auto px-4">
             <motion.h2
-              {...fadeInUp}
+              variants={fadeInUp}
+              initial="initial"
+              animate="animate"
+              transition={fadeInUpTransition}
               className="text-3xl font-bold mb-12 text-center"
             >
               Get In Touch
@@ -367,11 +386,15 @@ export default function EnhancedLawFirmLandingPage() {
                   <Input placeholder="Name" className="bg-gray-100 border-0" />
                   <Input type="email" placeholder="Email" className="bg-gray-100 border-0" />
                   <Input type="tel" placeholder="Phone Number" className="bg-gray-100 border-0" />
-                  <Select className="bg-gray-100 border-0">
-                    <option value="">Select Practice Area</option>
-                    <option value="family">Family Law</option>
-                    <option value="corporate">Corporate Law</option>
-                    <option value="criminal">Criminal Defense</option>
+                  <Select>
+                    <SelectTrigger className="bg-gray-100 border-0">
+                      <SelectValue placeholder="Select Practice Area" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="family">Family Law</SelectItem>
+                      <SelectItem value="corporate">Corporate Law</SelectItem>
+                      <SelectItem value="criminal">Criminal Defense</SelectItem>
+                    </SelectContent>
                   </Select>
                   <Textarea placeholder="Message" className="bg-gray-100 border-0" />
                   <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">Send Message</Button>
@@ -396,7 +419,6 @@ export default function EnhancedLawFirmLandingPage() {
                   <p>info@apexlaw.com</p>
                 </div>
                 <div className="h-64 bg-gray-200 rounded-lg overflow-hidden">
-                  {/* Google Maps Integration would go here */}
                   <div className="h-full flex items-center justify-center text-gray-500">
                     Google Maps Integration
                   </div>
@@ -406,7 +428,7 @@ export default function EnhancedLawFirmLandingPage() {
           </div>
         </section>
       </main>
-
+      
       {/* Footer */}
       <footer className="bg-gray-900 text-white py-12">
         <div className="container mx-auto px-4">
@@ -464,8 +486,8 @@ export default function EnhancedLawFirmLandingPage() {
         </div>
       </footer>
 
-      {/* Sticky CTA Button */}
-      <motion.div
+       {/* Sticky CTA Button */}
+       <motion.div
         className="fixed bottom-4 right-4 z-50"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -475,9 +497,9 @@ export default function EnhancedLawFirmLandingPage() {
           Request Consultation
         </Button>
       </motion.div>
-
-      {/* Live Chat Integration */}
-      <motion.div
+      
+    {/* Live Chat Integration */}
+    <motion.div
         className="fixed bottom-4 left-4 z-50"
         initial={{ y: 100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

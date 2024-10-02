@@ -4,7 +4,7 @@ import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-import { Phone, Mail, MapPin, Star, ChevronLeft, ChevronRight, Facebook, Youtube, Twitter, Linkedin, Instagram } from 'lucide-react'
+import { Phone, Mail, MapPin, Star, Facebook, Youtube, Twitter, Linkedin, Instagram } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import {
@@ -18,8 +18,9 @@ import {
 const fadeIn = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.6 }
 }
+
+const fadeInTransition = { duration: 0.6 }
 
 const staggerChildren = {
   animate: {
@@ -48,7 +49,7 @@ const LawFirmHomepage = () => {
             className="flex space-x-6 text-sm"
           >
             {["Home", "About", "Services", "Cases", "Team", "Contact"].map((item) => (
-              <motion.li key={item} variants={fadeIn}>
+              <motion.li key={item} variants={fadeIn} transition={fadeInTransition}>
                 <Link href="#" className="text-gray-600 hover:text-green-800 transition-colors">{item}</Link>
               </motion.li>
             ))}
@@ -124,7 +125,7 @@ const LawFirmHomepage = () => {
               animate="animate"
             >
               {["Experienced attorneys", "Personalized solutions", "Top legal services"].map((item, index) => (
-                <motion.li key={index} className="flex items-center" variants={fadeIn}>
+                <motion.li key={index} className="flex items-center" variants={fadeIn} transition={fadeInTransition}>
                   <span className="text-green-800 mr-2">✓</span>
                   {item}
                 </motion.li>
@@ -206,7 +207,7 @@ const LawFirmHomepage = () => {
               { number: "04", title: "Innovative Strategy", desc: "We utilize cutting-edge technologies and creative problem-solving for efficient results." },
               { number: "05", title: "Excellence & Community", desc: "We're committed to professional excellence and supporting local initiatives." }
             ].map((feature, index) => (
-              <motion.div key={index} variants={fadeIn}>
+              <motion.div key={index} variants={fadeIn} transition={fadeInTransition}>
                 <Card className="bg-green-700 h-full">
                   <CardContent className="p-6">
                     <div className="text-3xl font-bold mb-4">{feature.number}</div>
@@ -237,7 +238,7 @@ const LawFirmHomepage = () => {
                   ))}
                   <span className="ml-2 text-2xl">5.0</span>
                 </div>
-                <p className="text-xl mb-6">"Lawyero exceeded my expectations. They handled my complex business litigation with expertise and dedication, securing a favorable outcome. I couldn't have asked for better representation."</p>
+                <p className="text-xl mb-6">&quot;Lawyero exceeded my expectations. They handled my complex business litigation with expertise and dedication, securing a favorable outcome. I couldn&apos;t have asked for better representation.&quot;</p>
                 <div className="flex items-center">
                   <Image src="https://picsum.photos/80/80" alt="Client" width={80} height={80} className="rounded-full mr-4" />
                   <div>
@@ -263,7 +264,7 @@ const LawFirmHomepage = () => {
               animate="animate"
             >
               {["Proven Track Record", "Personalized Approach", "Transparent Communication"].map((item, index) => (
-                <motion.li key={index} className="flex items-center text-xl" variants={fadeIn}>
+                <motion.li key={index} className="flex items-center text-xl" variants={fadeIn} transition={fadeInTransition}>
                   <span className="bg-green-800 text-white rounded-full w-8 h-8 flex items-center justify-center mr-4">✓</span>
                   {item}
                 </motion.li>
@@ -287,8 +288,8 @@ const LawFirmHomepage = () => {
         </motion.div>
       </section>
 
-     {/* Footer */}
-     <footer className="bg-white py-16 px-6">
+      {/* Footer */}
+      <footer className="bg-white py-16 px-6">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12"
@@ -301,7 +302,7 @@ const LawFirmHomepage = () => {
               { icon: <Mail size={24} />, title: "Email", content: "contact@lawyero.com" },
               { icon: <MapPin size={24} />, title: "Address", content: "123 Legal Way, Phoenix, AZ 85001 USA" }
             ].map((item, index) => (
-              <motion.div key={index} className="flex items-center" variants={fadeIn}>
+              <motion.div key={index} className="flex items-center" variants={fadeIn} transition={fadeInTransition}>
                 <div className="text-green-800 mr-4">{item.icon}</div>
                 <div>
                   <p className="text-sm text-gray-500 mb-1">{item.title}</p>
